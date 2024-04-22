@@ -1,5 +1,6 @@
 import 'package:boom_web_test/webviewscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,6 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            ElevatedButton(
+                onPressed: () async {
+                  print(await Permission.storage.status);
+                },
+                child: Text("test")),
             const Text(
               'You have pushed the button this many times:',
             ),
